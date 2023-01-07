@@ -1,4 +1,4 @@
-import { instagram, reddit, twitter, pancake, binance, coinbase, paprika, send, shield, star, telegram  } from "../assets";
+import { instagram, reddit, twitter, pancake, binance, paprika, send, shield, star, telegram  } from "../assets";
 
 export const navLinks = [
   {
@@ -22,7 +22,7 @@ export const navLinks = [
     title: "Partners",
   },
   {
-    id: "clients",
+    id: "docs",
     title: "Docs",
     url: "https://docs.cryptoira.finance"
   },
@@ -94,7 +94,7 @@ export const footerLinks = [
       },
       {
         name: "Token Locker",
-        link: "https://https://app.cfg.ninja/",
+        link: "https://app.cfg.ninja/",
       },
       {
         name: "Staking",
@@ -164,15 +164,10 @@ export const clients = [
   {
     id: "client-2",
     logo: binance,
-    link: "https://binance.com",
+    link: "https://bscscan.com/token/0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE",
   },
   {
     id: "client-3",
-    logo: coinbase,
-    link: "https://coinbase.com",
-  },
-  {
-    id: "client-4",
     logo: paprika,
     link: "https://coinpaprika.com/coin/cira-crypto-ira/",
   },

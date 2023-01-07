@@ -10,7 +10,8 @@ module.exports = {
         button: "#466eab",
         dimWhite: "#565656",
         dimBlue: "#009aff",
-        header: "#001428",
+        header: "#1e3a64",
+        accent: "#ffd38f",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

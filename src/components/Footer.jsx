@@ -9,7 +9,7 @@ const Footer = () => (
         <img
           src={logo2}
           alt="cira"
-          className="w-[266px] h-[120px] object-contain"
+          className="w-[312px] h-[120px] object-contain"
         />
         <p className={`${styles.paragraphlight} mt-4 max-w-[312px]`}>
           A new way to to experience DeFi.

@@ -4,9 +4,9 @@ import GetStarted from "./GetStarted";
 
 const Hero = () => {
   return (
-    <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
+    <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY} `}>
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
-        <div className="flex flex-row items-center py-[6px] px-4 bg-secondary rounded-[10px] mb-2">
+        <div className="flex flex-row items-center py-[6px] px-4 bg-accent rounded-[10px] mb-2">
           
           <p className={`${styles.paragraphlight} ml-2`}>
             <span className="text-dimWhite">7%</span> BUSD Dividends{" "}

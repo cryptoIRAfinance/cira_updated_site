@@ -18,6 +18,12 @@
   scroll-behavior: smooth;
 }
 
+.hero-bg-image {
+  background-image: url(./src/assets/bg-overlay.png);
+  background-position: right;
+  background-transparent: 50%;
+}
+
 
 .text-gradient {
   background: radial-gradient(

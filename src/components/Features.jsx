@@ -8,7 +8,7 @@ const FeatureCard = ({ icon, title, content, index }) => (
       <img src={icon} alt="star" className="w-[50%] h-[50%] object-contain" />
     </div>
     <div className="flex-1 flex flex-col ml-3 bg-primary p-2 rounded-[10px]">
-      <h4 className="font-poppins font-semibold text-dimWhite text-[18px] leading-[23.4px] mb-1">
+      <h4 className="font-poppins font-semibold text-accent text-[18px] leading-[23.4px] mb-1">
         {title}
       </h4>
       <p className="font-poppins font-normal text-dimWhite text-[16px] leading-[24px]">
@@ -21,7 +21,7 @@ const FeatureCard = ({ icon, title, content, index }) => (
 const Features = () =>  (
   <section id="features" className={layout.section}>
     <div className={layout.sectionInfo}>
-      <h2 className={styles.heading2}>
+      <h2 className={styles.heading1}>
         Giving you the tools <br className="sm:block hidden" /> to invest
         confidently.
       </h2>
