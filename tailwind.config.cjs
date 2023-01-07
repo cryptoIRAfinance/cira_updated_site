@@ -11,7 +11,7 @@ module.exports = {
         dimWhite: "#565656",
         dimBlue: "#009aff",
         header: "#1e3a64",
-        accent: "#ffd38f",
+        accent: "#f9d70b",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
