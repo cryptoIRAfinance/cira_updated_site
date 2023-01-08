@@ -4,16 +4,16 @@ import styles, { layout } from "../style";
 const Services = () => (
   <section id="services" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
-      <img src={bill} alt="billing" className="w-[30%] h-[30%] relative z-[5]" />
+      <img src={bill} alt="billing" className="w-[75%] h-[75%] relative z-[5]" />
 
 
     </div>
 
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        CIRA Isn't <br className="sm:block hidden" /> Just For Investors
+        CIRA Isn't <br/> Just For Investors
       </h2>
-      <p className={`${styles.paragraphdark} max-w-[470px] mt-5`}>
+      <p className={`${styles.paragraphdark} max-w-[470px] mt-2`}>
         CIRA is a platform for everyone. Whether you are a investor, or 
         a project owner, CIRA is the place to be. We have a wide range of
         services to offer, and we are always looking to expand our services

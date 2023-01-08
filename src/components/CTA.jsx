@@ -9,11 +9,11 @@ const CTA = () => (
       - Liquidity Staking<br></br>
       - Rewards Dashboard<br></br>
       - Telegram Contract Scanner<br></br>
-      - Webased Contract Scanner<br></br>
+      - Web-based Contract Scanner<br></br>
       </p>
     </div>
 
-    <div className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10 mr-20`}>
+    <div className={`${styles.flexCenter} sm:ml-10 ml-5 sm:mt-0 mt-10 mr-20`}>
       <ButtonLight />
     </div>
   </section>
