@@ -112,6 +112,10 @@
   }
 }
 
+.bold {
+  font-weight: bold;
+}
+
 
 
 .feedback-container .feedback-card:last-child {
