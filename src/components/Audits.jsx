@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles, { layout } from "../style";
-import ButtonAudit from "./ButtonAudit";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore"; 
@@ -32,18 +31,8 @@ const Audits = () => {
 
     const handleSubmit = (event) => {
         console.log("Form submitted")
-        let data = {
-        testData: formData
-        }
-        
-        try {
-        const dofRef = addDoc(collection(db, "cira-audit"), {
-        data
-        });
-        } catch(err) {
-        console.log(err)
-        }
-        }
+        event.preventDefault();
+        const docRef = addDoc(collection(db, "audit_request"), formData)};
  
 
   return (
@@ -72,11 +61,11 @@ const Audits = () => {
       <label style={styles.label}>
           Email or Telegram:</label><br/>
           <input style={styles.input}
-          type="email"
-          name="email"
-          value={formData.email || ''}
+          type="text"
+          name="userName"
+          value={formData.userName || ''}
           onChange={handleChange}
-          onPaste={handleChange}
+
       />
 
       <br />
@@ -84,8 +73,8 @@ const Audits = () => {
           Contract Address:</label><br/>
           <input style={styles.input}
           type="text"
-          name="contract"
-          value={formData.contract || ''}
+          name="contractAddress"
+          value={formData.contractAddress || ''}
           onChange={handleChange}
           onPaste={handleChange}
       /><br/>
