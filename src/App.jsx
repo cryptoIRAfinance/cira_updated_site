@@ -1,5 +1,5 @@
 import styles from "./style";
-import { Services, Features, Applications, Clients, CTA, Footer, Navbar, Stats, Hero } from "./components";
+import { Services, Audits, Features, Applications, Clients, CTA, Footer, Navbar, Stats, Hero } from "./components";
 
 const App = () => (
   <div className="bg-secondary w-full overflow-hidden">
@@ -25,12 +25,12 @@ const App = () => (
         <div className={`bg-primary ${styles.flexStart}`}>
       <div className={`${styles.boxWidth}`}>
         <Services />
+        <Audits />
         </div>
         </div>
         <div className={`bg-secondary ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Applications />
-
         </div>
         </div>
         <div className={`bg-primary ${styles.flexStart}`}>
@@ -38,6 +38,11 @@ const App = () => (
         <CTA />
         <Clients />
         </div>
+        </div>
+        <div className={`bg-secondary ${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}>
+
+        </div>      
         </div>
         <div className={`bg-secondary ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>

@@ -17,18 +17,20 @@ const Services = () => (
         CIRA is a platform for everyone. Whether you are a investor, or 
         a project owner, CIRA is the place to be. We have a wide range of
         services to offer, and we are always looking to expand our services
-        to better serve our users. <br></br><br></br>
-        <div className="bold text-accent">
+        to better serve our users.     </p>
+        <div className={styles.subHead2}>
           We offer a wide range of services, including:
         </div>
-        <ul className="list-disc ml-5">
+        <ul className={`${styles.paragraphdark} list-disc`}>
+          <p className={`${styles.paragraphdark}  ml-5`}>
           <li>Smart Contract Auditing</li>
           <li>Developement Services</li>
           <li>Project management</li>
           <li>Consulting</li>
           <li>Project support</li>
+          </p>
         </ul>
-      </p>
+
 
 
     </div>

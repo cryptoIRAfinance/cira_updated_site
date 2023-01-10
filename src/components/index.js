@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+import Audits from "./Audits";
 import Services from "./Services";
 import Applications from "./Applications";
 import Features from "./Features";
@@ -11,6 +12,7 @@ import Hero from "./Hero";
 
 export {
   Navbar,
+  Audits,
   Services,
   Applications,
   Features,
