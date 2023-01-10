@@ -79,7 +79,7 @@ const Audits = () => {
           onPaste={handleChange}
       /><br/>
 
-    <button type="submit" onClick={handleSubmit}>
+    <button type="submit" onClick={handleSubmit} className={`py-4 px-6 font-poppins font-medium text-[18px] text-dimBlue bg-accent rounded-[10px] outline-none ${styles} mt-5`}>
     Request Audit
     </button>
 
