@@ -5,8 +5,6 @@ const Services = () => (
   <section id="services" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
       <img src={bill} alt="billing" className="w-[75%] h-[75%] relative z-[5]" />
-
-
     </div>
 
     <div className={layout.sectionInfo}>

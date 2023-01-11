@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import styles, { layout } from "../style";
+import styles, { layout } from "../../style";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore";
-import Modal from "./Modal";
+import Modal from "../Modal/Modal";
+import "./Audits.css";
 
 
   
@@ -65,7 +66,7 @@ const Audits = () => {
           </ul>
       </div>
 
-      <div className={layout.sectionImg}>
+      <div className={layout.sectionInfo}>
       <form  style={styles.form} onSubmit={(e) => {e.preventDefault(); handleSubmit(e)}}>
       <label style={styles.label}>
           Email or Telegram:</label><br/>
@@ -105,17 +106,37 @@ const Audits = () => {
           }}
       /><br/>
 
+      <label style={styles.label} >
+          Brief Message:</label><br/>
+          <textarea className="messageInput"
+          type="textArea"
+          name="userMessage"
+          value={formData.userMessage || ''}
+          onChange={handleChange}
+          required
+          maxLength={300}
+          title="Please enter a message for our team, up to 300 characters" 
+          onInvalid={(e) => {
+            e.target.setCustomValidity("Please enter a message for our team, up to 300 character");
+          }}
+          onInput={(e) => {
+            e.target.setCustomValidity("");
+          }}
+      /><br/>
+
     <button type="submit" className={`py-4 px-6 font-poppins font-medium text-[18px] text-dimBlue bg-accent rounded-[10px] outline-none ${styles} mt-5`}>
     Request Audit
     </button>
 
       </form>
-      </div>
+
       <Modal isOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)}>
-    <h2>Thank You</h2>
-    <p>A team member will reach out to you as soon as possible!</p>
-    <button onClick={() => setModalIsOpen(false)}>Close</button>
+        <h2>Thank You</h2>
+        <p>A team member will reach out to you as soon as possible!</p>
+        <button  className="modal-button-close" onClick={() => setModalIsOpen(false)}>
+        Close</button>
     </Modal>
+    </div>
       </section>
     );  
 };
