@@ -32,17 +32,17 @@ const Audits = () => {
     };
 
 
-    const handleSubmit = (event) => {
-        console.log("Form submitted")
-        event.preventDefault();
-        const docRef = addDoc(collection(db, "audit_request"), formData)
-        setModalIsOpen(true);
-      };
+    const handleSubmit = (e) => {
+      if (!e.currentTarget.checkValidity()) {
+        console.log('Form is not valid');
+        return;
+      }
+      e.preventDefault();
+      console.log("Form submitted")
+      const docRef = addDoc(collection(db, "audit_request"), formData)
+      setModalIsOpen(true);
+    };
 
-
-      
-
- 
 
   return (
     <section id="services" className={layout.section}>
@@ -66,7 +66,7 @@ const Audits = () => {
       </div>
 
       <div className={layout.sectionImg}>
-      <form onSubmit={handleSubmit} style={styles.form}>
+      <form  style={styles.form} onSubmit={(e) => {e.preventDefault(); handleSubmit(e)}}>
       <label style={styles.label}>
           Email or Telegram:</label><br/>
           <input style={styles.input}
@@ -74,7 +74,15 @@ const Audits = () => {
           name="userName"
           value={formData.userName || ''}
           onChange={handleChange}
-
+          required
+          pattern="^(?=\S)([A-Za-z0-9._%+-]+)$"
+          title="Please enter a valid email or telegram username" 
+          onInvalid={(e) => {
+            e.target.setCustomValidity("Please enter a valid email or telegram username");
+          }}
+          onInput={(e) => {
+            e.target.setCustomValidity("");
+          }}
       />
 
       <br />
@@ -86,9 +94,18 @@ const Audits = () => {
           value={formData.contractAddress || ''}
           onChange={handleChange}
           onPaste={handleChange}
+          required 
+          pattern=".{1,}"
+          title="Please enter a valid contract address"
+          onInvalid={(e) => {
+            e.target.setCustomValidity("Please enter a valid contract address");
+          }}
+          onInput={(e) => {
+            e.target.setCustomValidity("");
+          }}
       /><br/>
 
-    <button type="submit" onClick={handleSubmit} className={`py-4 px-6 font-poppins font-medium text-[18px] text-dimBlue bg-accent rounded-[10px] outline-none ${styles} mt-5`}>
+    <button type="submit" className={`py-4 px-6 font-poppins font-medium text-[18px] text-dimBlue bg-accent rounded-[10px] outline-none ${styles} mt-5`}>
     Request Audit
     </button>
 
