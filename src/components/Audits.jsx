@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styles, { layout } from "../style";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, addDoc } from "firebase/firestore"; 
+import { collection, addDoc } from "firebase/firestore";
+import Modal from "./Modal";
 
 
   
@@ -16,10 +17,11 @@ const Audits = () => {
         appId: "1:213411178894:web:13dd23f6c3ad15a5cf5cdf",    
         measurementId: "G-GR5404W05Q"    
         };
+
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     
-
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     const [formData, setFormData] = useState({});
 
     const handleChange = (event) => {
@@ -29,10 +31,17 @@ const Audits = () => {
         });console.log(formData)
     };
 
+
     const handleSubmit = (event) => {
         console.log("Form submitted")
         event.preventDefault();
-        const docRef = addDoc(collection(db, "audit_request"), formData)};
+        const docRef = addDoc(collection(db, "audit_request"), formData)
+        setModalIsOpen(true);
+      };
+
+
+      
+
  
 
   return (
@@ -85,8 +94,13 @@ const Audits = () => {
 
       </form>
       </div>
+      <Modal isOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)}>
+    <h2>Thank You</h2>
+    <p>A team member will reach out to you as soon as possible!</p>
+    <button onClick={() => setModalIsOpen(false)}>Close</button>
+    </Modal>
       </section>
-    );
-  };
+    );  
+};
 
 export default Audits;
