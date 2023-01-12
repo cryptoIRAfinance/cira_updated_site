@@ -10,12 +10,15 @@ const styles = {
   paragraphdark: "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px] ml-2",
 
   form: {
-    display: "flex", 
+    display: "center",
+    justifyContent: "center",
     flexDirection: "column", 
     alignItems: "center", 
-    width: "100%", 
-
+    width: "100%",
+    textAlign: "center",
+    
   },
+
   input: {
     width: "75%", 
     height: "40px", 
@@ -24,13 +27,14 @@ const styles = {
     backgroundColor: "#1e3a64", 
     color: "white", 
     fontSize: "16px", 
-    marginBottom: "5px", 
-    alignItems: "center"  
+    alignItems: "center",  
+    marginBottom: "20px"
   },
+  
   label: {
     fontSize: '16px', 
-    color: '#fac25f', 
-    marginTop: "10px", 
+    color: '#fac25f',
+        
   },
 
   flexCenter: "flex justify-center items-center",
@@ -51,6 +55,7 @@ export const layout = {
 
   sectionImgReverse: `flex-1 flex ${styles.flexCenter} md:mr-10 mr-0 md:mt-0 mt-0 relative`,
   sectionImg: `flex-1 flex ${styles.flexCenter} md:ml-10 ml-0 md:mt-0 mt-10 relative`,
+  sectionForm: `flex-1 ${styles.flexCenter} flex-col`,
 
   sectionInfo: `flex-1 ${styles.flexStart} flex-col`,
 };

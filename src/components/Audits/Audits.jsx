@@ -66,7 +66,7 @@ const Audits = () => {
           </ul><br />
       </div>
 
-      <div className={layout.sectionInfo}>
+      <div className={layout.sectionForm}>
       <form  style={styles.form} onSubmit={(e) => {e.preventDefault(); handleSubmit(e)}}>
       <label style={styles.label}>
           Email or Telegram:</label><br/>
@@ -106,7 +106,7 @@ const Audits = () => {
           }}
       /><br/>
 
-      <label style={styles.label} >
+      <label style={styles.label}>
           Brief Message:</label><br/>
           <textarea className="messageInput"
           type="textArea"
