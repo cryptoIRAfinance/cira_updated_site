@@ -16,7 +16,7 @@ const Navbar = () => {
           <li
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[16px] ${
-              active === nav.title ? "text-black" : "text-button"
+              active === nav.title ? "text-black" : "text-navBarURL"
             } ${index === navLinks.length - 1 ? "mr-0" : "mr-5"}`}
             onClick={() => setActive(nav.title)}
           >

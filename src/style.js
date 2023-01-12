@@ -9,10 +9,10 @@ const styles = {
   paragraphlight: "font-poppins font-normal text-dimBlue text-[18px] leading-[30.8px] ml-2",
   paragraphdark: "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px] ml-2",
 
-  form: {display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%", margin: "0 auto", marginBottom: "20px", },
-  input: {width: "50%", height: "40px", border: "none", borderRadius: "5px", backgroundColor: "cornflowerblue", color: "white", fontSize: "16px", marginBottom: "20px", marginTop: "10px", alignItems: "center"  },
-  messageInput: {display: 'flex', alignItems: 'flex-start', width: '50%', height: '150px',border: 'none', borderRadius: '5px', backgroundColor: 'cornflowerblue', color: 'white', fontSize: '16px', wordWrap: "break-word", maxlength: '36'},
-  label: {fontSize: '16px', color: '#565656' },
+  form: {display: "flex", flexDirection: "column", alignItems: "center", width: "100%", margin: "0 auto", marginBottom: "20px", },
+  input: {width: "75%", height: "40px", border: "none", borderRadius: "10px", backgroundColor: "#1e3a64", color: "white", fontSize: "16px", marginBottom: "20px", marginTop: "10px", alignItems: "center"  },
+  messageInput: {display: 'flex', alignItems: 'flex-start', width: '75%', height: '150px',border: 'none', borderRadius: '5px', backgroundColor: 'cornflowerblue', color: 'white', fontSize: '16px', wordWrap: "break-word", maxlength: '36'},
+  label: {fontSize: '16px', color: '#fac25f' },
 
   flexCenter: "flex justify-center items-center",
   flexStart: "flex justify-center items-start",

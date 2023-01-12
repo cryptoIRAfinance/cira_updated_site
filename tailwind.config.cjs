@@ -7,12 +7,13 @@ module.exports = {
       colors: {
         primary: "#4e6591",
         secondary: "#f5f6fa",
-        button: "#466eab",
+        button: "#fac25f",
         dimWhite: "#fff",
-        dimBlue: "#009aff",
+        navBarURL: "#1ab6d8",
+        dimBlue: "#000",
         headerDark: "#1e3a64",
         headerAccent: "#009dc8",
-        accent: "#fad000",
+        accent: "#fac25f",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
