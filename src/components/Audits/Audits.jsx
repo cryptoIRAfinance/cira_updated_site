@@ -63,7 +63,7 @@ const Audits = () => {
             <li>State of the art automated testing</li>
             <li>Code Corrections</li>
             <li>PDF Audit Report</li>
-          </ul>
+          </ul><br />
       </div>
 
       <div className={layout.sectionInfo}>
