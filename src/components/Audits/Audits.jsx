@@ -3,6 +3,7 @@ import styles, { layout } from "../../style";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, addDoc } from "firebase/firestore";
+import Web3 from "web3";
 import Modal from "../Modal/Modal";
 import "./Audits.css";
 
@@ -26,25 +27,52 @@ const Audits = () => {
     const [formData, setFormData] = useState({});
 
     const handleChange = (event) => {
-        setFormData({
-        ...formData,
-        [event.target.name]: event.target.value,
-        });console.log(formData)
-    };
-
-
-    const handleSubmit = (e) => {
-      if (!e.currentTarget.checkValidity()) {
-        console.log('Form is not valid');
-        return;
+      let isValid = true;
+      if (event.target.name === "userName") {
+        isValid = event.target.value.match(/^(?=\S)([A-Za-z0-9._%+-]+)$/);
       }
+      if (event.target.name === "contractAddress") {
+        isValid = Web3.utils.isAddress(event.target.value);
+      }
+      if (event.target.name === "userMessage") {
+        isValid = event.target.value.match(/^[A-Za-z0-9.,!? ]*$/);
+      }
+    
+      if (isValid) {
+        setFormData({...formData, [event.target.name]: event.target.value});
+      } else {
+        event.target.value = "";
+      }
+    };
+    
+    const handlePaste = (event) => {
+      if (event.target.name === "userName") {
+        if(!event.clipboardData.getData('text').match(/^(?=\S)([A-Za-z0-9._%+-]+)$/)) {
+          event.preventDefault();
+        }
+      }
+      if (event.target.name === "contractAddress") {
+        if(!Web3.utils.isAddress(event.clipboardData.getData('text'))) {
+          event.preventDefault();
+        }
+      }
+      if (event.target.name === "userMessage") {
+        if(!event.clipboardData.getData('text').match(/^[A-Za-z0-9.,!? ]*$/)) {
+          event.preventDefault();
+        }
+      }
+    }
+    
+    
+    const handleSubmit = (e) => {
       e.preventDefault();
       console.log("Form submitted")
       const docRef = addDoc(collection(db, "audit_request"), formData)
       setModalIsOpen(true);
     };
+    
 
-
+  
   return (
     <section id="services" className={layout.section}>
 
@@ -75,6 +103,7 @@ const Audits = () => {
           name="userName"
           value={formData.userName || ''}
           onChange={handleChange}
+          onPaste={handlePaste}
           required
           pattern="^(?=\S)([A-Za-z0-9._%+-]+)$"
           title="Please enter a valid email or telegram username" 
@@ -94,9 +123,8 @@ const Audits = () => {
           name="contractAddress"
           value={formData.contractAddress || ''}
           onChange={handleChange}
-          onPaste={handleChange}
+          onPaste={handlePaste}
           required 
-          pattern=".{1,}"
           title="Please enter a valid contract address"
           onInvalid={(e) => {
             e.target.setCustomValidity("Please enter a valid contract address");
@@ -108,11 +136,14 @@ const Audits = () => {
 
       <label style={styles.label}>
           Brief Message:</label><br/>
-          <textarea className="messageInput"
+          <textarea 
+          pattern="[A-Za-z0-9.,!? ]*"
+          className="messageInput"
           type="textArea"
           name="userMessage"
           value={formData.userMessage || ''}
           onChange={handleChange}
+          onPaste={handlePaste}
           required
           maxLength={300}
           title="Please enter a message for our team, up to 300 characters" 
