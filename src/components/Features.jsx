@@ -33,7 +33,7 @@ const Features = () =>  (
 
       </p>
 
-      <ButtonLight styles={`mt-10`} />
+      <ButtonLight styles={`mt-10`} a href="https://cira.exchange"/>
     </div>
 
     <div className={`${layout.sectionImg} flex-col`}>
