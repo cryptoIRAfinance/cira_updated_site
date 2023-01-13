@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styles, { layout } from "../../style";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
@@ -22,20 +22,42 @@ const Audits = () => {
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-    
+    const inputRef = useRef(null);
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [formData, setFormData] = useState({});
+    const [userName, setUserName] = useState(formData.userName || '');
+    const [contractAddress, setContractAddress] = useState(formData.contractAddress || '');
+    const [userMessage, setUserMessage] = useState(formData.userMessage || '');
+
+    const getTimeStamp = () => {
+      const date = new Date();
+      const options = { timeZone: 'America/Chicago',  year: 'numeric', month: '2-digit', day: '2-digit',hour: '2-digit', minute: '2-digit', second: '2-digit'};
+      const timestamp = date.toLocaleTimeString('en-US', options);
+
+      setFormData(prevFormData => {
+        const newFormData = {
+            ...prevFormData,
+            timestamp: timestamp
+        };
+        console.log(`Time: ${newFormData.timestamp}`);
+        return newFormData;
+      });
+   }
 
     const handleChange = (event) => {
       let isValid = true;
       if (event.target.name === "userName") {
-        isValid = event.target.value.match(/^(?=\S)([A-Za-z0-9._%+-]+)$/);
+        isValid = event.target.value.match(/^[A-Za-z0-9._%+@-]+$/);
+        setUserName(event.target.value);
       }
       if (event.target.name === "contractAddress") {
         isValid = Web3.utils.isAddress(event.target.value);
+        setContractAddress(event.target.value);
       }
       if (event.target.name === "userMessage") {
-        isValid = event.target.value.match(/^[A-Za-z0-9.,!? ]*$/);
+        isValid = event.target.value.match(/^[A-Za-z0-9.,!?\n ]*$/);
+        setUserMessage(event.target.value);
       }
     
       if (isValid) {
@@ -47,7 +69,7 @@ const Audits = () => {
     
     const handlePaste = (event) => {
       if (event.target.name === "userName") {
-        if(!event.clipboardData.getData('text').match(/^(?=\S)([A-Za-z0-9._%+-]+)$/)) {
+        if(!event.clipboardData.getData('text').match(/^[A-Za-z0-9._%+@-]+$/)) {
           event.preventDefault();
         }
       }
@@ -57,7 +79,7 @@ const Audits = () => {
         }
       }
       if (event.target.name === "userMessage") {
-        if(!event.clipboardData.getData('text').match(/^[A-Za-z0-9.,!? ]*$/)) {
+        if(!event.clipboardData.getData('text').match(/^[A-Za-z0-9.,!?'\n ]*$/)) {
           event.preventDefault();
         }
       }
@@ -69,6 +91,7 @@ const Audits = () => {
       console.log("Form submitted")
       const docRef = addDoc(collection(db, "audit_request"), formData)
       setModalIsOpen(true);
+      console.log(formData.userMessage)
     };
     
 
@@ -101,18 +124,11 @@ const Audits = () => {
           <input style={styles.input}
           type="text"
           name="userName"
-          value={formData.userName || ''}
+          value={userName}
+          ref={inputRef}
           onChange={handleChange}
           onPaste={handlePaste}
-          required
-          pattern="^(?=\S)([A-Za-z0-9._%+-]+)$"
           title="Please enter a valid email or telegram username" 
-          onInvalid={(e) => {
-            e.target.setCustomValidity("Please enter a valid email or telegram username");
-          }}
-          onInput={(e) => {
-            e.target.setCustomValidity("");
-          }}
       />
 
       <br />
@@ -121,7 +137,7 @@ const Audits = () => {
           <input style={styles.input}
           type="text"
           name="contractAddress"
-          value={formData.contractAddress || ''}
+          value={contractAddress}
           onChange={handleChange}
           onPaste={handlePaste}
           required 
@@ -137,11 +153,10 @@ const Audits = () => {
       <label style={styles.label}>
           Brief Message:</label><br/>
           <textarea 
-          pattern="[A-Za-z0-9.,!? ]*"
           className="messageInput"
           type="textArea"
           name="userMessage"
-          value={formData.userMessage || ''}
+          value={userMessage}
           onChange={handleChange}
           onPaste={handlePaste}
           required
@@ -155,7 +170,7 @@ const Audits = () => {
           }}
       /><br/>
 
-    <button type="submit" className={`py-4 px-6 font-poppins font-medium text-[18px] text-dimBlue bg-accent rounded-[10px] outline-none ${styles} mt-5`}>
+    <button type="submit" onClick={getTimeStamp} className={`py-4 px-6 font-poppins font-medium text-[18px] text-dimBlue bg-accent rounded-[10px] outline-none ${styles} mt-5`}>
     Request Audit
     </button>
 
