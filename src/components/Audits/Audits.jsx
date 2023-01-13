@@ -29,6 +29,7 @@ const Audits = () => {
     const [userName, setUserName] = useState(formData.userName || '');
     const [contractAddress, setContractAddress] = useState(formData.contractAddress || '');
     const [userMessage, setUserMessage] = useState(formData.userMessage || '');
+    const [error, setError] = useState("");
 
     const getTimeStamp = () => {
       const date = new Date();
@@ -52,8 +53,9 @@ const Audits = () => {
         setUserName(event.target.value);
       }
       if (event.target.name === "contractAddress") {
-        isValid = Web3.utils.isAddress(event.target.value);
-        setContractAddress(event.target.value);
+        if (Web3.utils.isAddress(event.target.value)) {
+            setContractAddress(event.target.value);
+        }
       }
       if (event.target.name === "userMessage") {
         isValid = event.target.value.match(/^[A-Za-z0-9.,!?\n ]*$/);
@@ -74,8 +76,11 @@ const Audits = () => {
         }
       }
       if (event.target.name === "contractAddress") {
-        if(!Web3.utils.isAddress(event.clipboardData.getData('text'))) {
+        const pastedValue = event.clipboardData.getData('text');
+        if(!Web3.utils.isAddress(pastedValue)) {
           event.preventDefault();
+        } else {
+          setContractAddress(pastedValue)
         }
       }
       if (event.target.name === "userMessage") {
@@ -83,16 +88,43 @@ const Audits = () => {
           event.preventDefault();
         }
       }
-    }
+    };
+
+    const handleBlur = (event) => {
+      if (event.target.name === "contractAddress") {
+          if (event.target.value === "") {
+              setContractAddress("Contract Not Provided");
+              setFormData(prevFormData => ({
+                ...prevFormData,
+                contractAddress: "Contract Not Provided"
+              }));
+          } else {
+              setFormData(prevFormData => ({
+                ...prevFormData,
+                [event.target.name]: event.target.value
+              }));
+          }
+      }
+  }
+  
     
     
     const handleSubmit = (e) => {
       e.preventDefault();
-      console.log("Form submitted")
+      console.log("Form CA: " + formData.contractAddress)
+      console.log("State CA: " + contractAddress)
+      if (!Web3.utils.isAddress(formData.contractAddress) && contractAddress !== "Contract Not Provided") {
+        setError("Invalid contract address");
+        console.log("Invalid contract address");
+        return;
+      }
+      setError("");
+      console.log("Form submitted");
+      // send the form data to the database
       const docRef = addDoc(collection(db, "audit_request"), formData)
       setModalIsOpen(true);
-      console.log(formData.userMessage)
     };
+    
     
 
   
@@ -123,6 +155,7 @@ const Audits = () => {
           Email or Telegram:</label><br/>
           <input style={styles.input}
           type="text"
+          placeholder="Enter a valid email or telegram username"
           name="userName"
           value={userName}
           ref={inputRef}
@@ -136,25 +169,22 @@ const Audits = () => {
           Contract Address:</label><br/>
           <input style={styles.input}
           type="text"
+          placeholder="Paste your contract address here"
           name="contractAddress"
           value={contractAddress}
           onChange={handleChange}
+          onBlur={handleBlur}
           onPaste={handlePaste}
           required 
           title="Please enter a valid contract address"
-          onInvalid={(e) => {
-            e.target.setCustomValidity("Please enter a valid contract address");
-          }}
-          onInput={(e) => {
-            e.target.setCustomValidity("");
-          }}
-      /><br/>
+        /><div style={styles.label}>{error}</div><br/>
 
       <label style={styles.label}>
           Brief Message:</label><br/>
           <textarea 
           className="messageInput"
           type="textArea"
+          placeholder="Provide a brief description and expected delivery time"
           name="userMessage"
           value={userMessage}
           onChange={handleChange}
