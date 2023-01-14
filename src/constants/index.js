@@ -111,10 +111,13 @@ export const footerLinks = [
         link: "https://reviews.cryptoira.finance",
       },
       {
-        name: "Blog",
-        link: "https://blog.cryptoira.finance/",
+        name: "Medium",
+        link: "https://medium.com/@cryptoira.finance",
       },
-
+      {
+        name: "Reddit",
+        link: "https://www.reddit.com/r/cryptoIRAfinance/",
+      },
     ],
   },
   {

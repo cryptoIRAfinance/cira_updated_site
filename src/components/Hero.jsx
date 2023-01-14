@@ -28,8 +28,7 @@ const Hero = () => {
           DeFi Standard.
         </h1>
         <p className={`${styles.paragraphdark} max-w-[470px] mt-5`}>
-        Our suite of tools empower users to make informed decisions and maximize their returns, while its rewards and contests further incentivize user engagement.
-        The CIRA platform is built on Binance Smart Chain, making it secure and reliable, while its decentralized nature ensures that users have full control over their funds.
+        CIRA represents the future of decentralized finance (DeFi) with its cutting-edge suite of tools designed to empower users to make informed decisions and optimize their returns. Our platform not only offers a wide range of services, but also incentivizes user engagement through rewards and contests. Built on the secure and reliable Binance Smart Chain, our decentralized platform provides users with complete control over their funds, ensuring the safety and security of their investments. With CIRA, you can trust that you are utilizing the latest and most advanced DeFi standard.
 
           
         </p>
