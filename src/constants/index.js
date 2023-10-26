@@ -19,12 +19,12 @@ export const navLinks = [
   },
   {
     id: "clients",
-    title: "Partners",
+    title: "Tools",
   },
   {
     id: "docs",
     title: "Docs",
-    url: "https://docs.cryptoira.finance"
+    url: "https://docs.cira.app"
   },
 ];
 

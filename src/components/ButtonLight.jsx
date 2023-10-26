@@ -1,7 +1,7 @@
 import React from "react";
 
 const handleClick = () => {
-  window.location.href = "https://cira.exchange"
+  window.location.href = "https://test.cryptoira.finance"
 }
 
 const ButtonLight = ({ styles }) => (
