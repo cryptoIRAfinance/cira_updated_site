@@ -86,19 +86,19 @@ export const footerLinks = [
     links: [
       {
         name: "Gitbook",
-        link: "https://docs.cryptoira.finance",
+        link: "https://docs.cira.app",
       },
       {
         name: "Rewards Tracker",
         link: "https://tracker.cryptoira.finance",
       },
       {
-        name: "Token Locker",
-        link: "https://app.cfg.ninja/",
+        name: "Test App",
+        link: "https://test.cryptoira.finance",
       },
       {
         name: "Staking",
-        link: "https://staking.cryptoira.finance",
+        link: "https://test.cryptoira.finance/staking",
       },
     ],
   },
@@ -106,30 +106,30 @@ export const footerLinks = [
     title: "Community",
     links: [
 
-      {
-        name: "Reviews",
-        link: "https://reviews.cryptoira.finance",
-      },
+      // {
+      //   name: "Reviews",
+      //   link: "https://reviews.cryptoira.finance",
+      // },
       {
         name: "Medium",
         link: "https://medium.com/@cryptoira.finance",
       },
       {
         name: "Reddit",
-        link: "https://www.reddit.com/r/cryptoIRAfinance/",
+        link: "https://www.reddit.com/r/CIRADefi/",
       },
     ],
   },
   {
-    title: "Partners",
+    title: "Tools",
     links: [
       {
-        name: "CFG Ninja",
-        link: "https://cfg.ninja/",
+        name: "CIRALock",
+        link: "https://test.cryptoira.finance/locker",
       },
       {
-        name: "Phoenix Blockchain",
-        link: "https://cryptophoenix.org/phoenix/",
+        name: "Honey Pot Scanner",
+        link: "https://test.cryptoira.finance/honeypot",
       },
     ],
   },
@@ -144,17 +144,17 @@ export const socialMedia = [
   {
     id: "social-media-2",
     icon: twitter,
-    link: "https://www.twitter.com/cryptoIRAtoken",
+    link: "https://twitter.com/CiraDefi",
   },
   {
     id: "social-media-3",
     icon: telegram,
-    link: "https://t.me/cryptoIRAchat",
+    link: "https://t.me/CiraDefi",
   },
   {
     id: "social-media-4",
     icon: reddit,
-    link: "https://www.reddit.com/r/cryptoIRAfinance/",
+    link: "https://www.reddit.com/r/CIRADefi/",
   },
 ];
 
