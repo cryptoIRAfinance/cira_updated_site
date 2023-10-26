@@ -90,7 +90,7 @@ export const footerLinks = [
       },
       {
         name: "Rewards Tracker",
-        link: "https://tracker.cryptoira.finance",
+        link: "https://test.cryptoira.finance/dashboard",
       },
       {
         name: "Test App",
