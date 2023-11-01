@@ -27,27 +27,30 @@ $addresses = [
 
 $sum = 0;
 foreach ($addresses as $address) {
-    $url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress={$contract_address}&address={$address}&tag=latest&apikey={$API_KEY}"
+    $url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress={$contract_address}&address={$address}&tag=latest&apikey={$API_KEY}";
     $response = http_request($url);
     if ($response === false) {
         continue; 
     }
     $json = json_decode($response, true);
-    if (isset($json["result"])) {
-        $sum += $json["result"] / 1e5;
+    if ($json !== null) {
+        if (isset($json["result"])) {
+            $sum += $json["result"] / 1e5;
+        } else {
+            // Handle unexpected JSON structure
+        }
     } else {
-        
+        // Handle JSON decoding error
+        echo "JSON decoding error: " . json_last_error_msg();
     }
 }
 
 $cal = 10000000 - $sum;
 echo number_format($cal, 5, '.', '');
 
-
 if ($response === false) {
-    echo "HTTP request failed: " . curl_error($ch); /
+    echo "HTTP request failed: " . curl_error($response);
 } else {
     echo "API Response: " . $response; 
 }
-
 ?>
