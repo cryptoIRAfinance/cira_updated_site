@@ -45,7 +45,7 @@ $output = [
     "Balances" => array_map(function($balance) {
         return number_format($balance, 5, '.', ',');
     }, $balances),
-    "Remaining Balance" => number_format($remaining_balance, 5, '.', ',')
+    "Circulating_supply" => number_format($remaining_balance, 5, '.', ',')
 ];
 
 echo json_encode($output);
