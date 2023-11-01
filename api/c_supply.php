@@ -41,7 +41,7 @@ foreach ($addresses as $address) {
 }
 
 $cal = 10000000 - $sum;
-echo number_format($cal, 5, '.', ',');
+echo number_format($cal, 5, '.', '');
 
 // Debugging code to examine the raw API response
 if ($response === false) {
