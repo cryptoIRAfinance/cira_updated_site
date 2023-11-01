@@ -41,12 +41,13 @@ $remaining_balance = 10000000 - array_sum($balances);
 
 // Output the results
 $output = [
-    "Total Supply" => number_format($total_supply, 5, '.', ''),
+    "Total Supply" => number_format($total_supply, 5, '.', ','),
     "Balances" => array_map(function($balance) {
-        return number_format($balance, 5, '.', '');
+        return number_format($balance, 5, '.', ',');
     }, $balances),
-    "Circulating" => number_format($remaining_balance, 5, '.', '')
+    "Remaining Balance" => number_format($remaining_balance, 5, '.', ',')
 ];
 
 echo json_encode($output);
+
 ?>
