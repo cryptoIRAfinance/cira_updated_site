@@ -54,8 +54,8 @@ $cal = 10000000 - $sum;
 
 // Create an associative array for the JSON response
 $responseData = [
-    "calculated_value" => number_format($cal, 5, '.', ''),
-    "api_response" => $jsonStr // Include the extracted JSON data in the response
+    number_format($cal, 5, '.', ''),
+    // "api_response" => $jsonStr // Include the extracted JSON data in the response
 ];
 
 // Set the Content-Type header for JSON
