@@ -172,6 +172,6 @@ export const clients = [
   {
     id: "client-3",
     logo: paprika,
-    link: "https://coinpaprika./coin/cira-crypto-ira/",
+    link: "https://coinpaprika.com/coin/cira-crypto-ira/",
   },
 ];
