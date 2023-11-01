@@ -23,7 +23,7 @@ $totalur = http_request("https://api.bscscan.com/api?module=stats&action=tokensu
 $total = json_decode($totalur, true);
 
 $totalre = $total["result"];
-$totaldone = $rtotalre / 1e5;
+$totaldone = $totalre / 1e5;
 print number_format($totaldone, 5, '.', '');
 
 $re1 = $j1["result"];
