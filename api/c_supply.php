@@ -27,7 +27,7 @@ $addresses = [
 
 $sum = 0;
 foreach ($addresses as $address) {
-    $url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress={$contract_address}&address={$address}&tag=latest&apikey=" . API_KEY;
+    $url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress={$contract_address}&address={$address}&tag=latest&apikey={$API_KEY};
     $response = http_request($url);
     if ($response === false) {
         continue; // Handle error as needed
