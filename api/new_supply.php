@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: application/json');
 
 // Function to perform HTTP GET requests
 function http_request($url){
@@ -52,11 +51,16 @@ foreach ($addresses as $address) {
 }
 
 $cal = 10000000 - $sum;
-echo number_format($cal, 5, '.', '');
 
-if ($response === false) {
-    echo "HTTP request failed: " . curl_error($response);
-} else {
-    echo "API Response: " . $jsonStr; // Display the extracted JSON data
-}
+// Create an associative array for the JSON response
+$responseData = [
+    "calculated_value" => number_format($cal, 5, '.', ''),
+    "api_response" => $jsonStr // Include the extracted JSON data in the response
+];
+
+// Set the Content-Type header for JSON
+header('Content-Type: application/json');
+
+// Output the JSON response
+echo json_encode($responseData);
 ?>
