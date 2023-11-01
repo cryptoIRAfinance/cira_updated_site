@@ -19,6 +19,12 @@ $j3 = json_decode($ur3, true);
 $j4 = json_decode($ur4, true);
 $j5 = json_decode($ur5, true);
 
+$totalur = http_request("https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&apikey=JAGR4Z37B7PRU9GBQTHR5G6E2QRXG8BA4D");
+$total = json_decode($totalur, true);
+
+$totalre = $total["result"];
+$totaldone = $rtotalre / 1e5;
+print number_format($s1, 5, '.', '');
 
 $re1 = $j1["result"];
 $re2 = $j2["result"];
