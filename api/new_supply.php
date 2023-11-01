@@ -32,16 +32,22 @@ foreach ($addresses as $address) {
     if ($response === false) {
         continue; 
     }
-    $json = json_decode($response, true);
-    if ($json !== null) {
-        if (isset($json["result"])) {
+    
+    // Extract JSON data from the response
+    $jsonStart = strpos($response, '{');
+    $jsonEnd = strrpos($response, '}');
+    if ($jsonStart !== false && $jsonEnd !== false) {
+        $jsonStr = substr($response, $jsonStart, $jsonEnd - $jsonStart + 1);
+        $json = json_decode($jsonStr, true);
+        
+        if ($json !== null && isset($json["result"])) {
             $sum += $json["result"] / 1e5;
         } else {
             // Handle unexpected JSON structure
         }
     } else {
-        // Handle JSON decoding error
-        echo "JSON decoding error: " . json_last_error_msg();
+        // Handle missing JSON data
+        echo "JSON data not found in the response.";
     }
 }
 
@@ -51,6 +57,6 @@ echo number_format($cal, 5, '.', '');
 if ($response === false) {
     echo "HTTP request failed: " . curl_error($response);
 } else {
-    echo "API Response: " . $response; 
+    echo "API Response: " . $jsonStr; // Display the extracted JSON data
 }
 ?>
