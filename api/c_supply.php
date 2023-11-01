@@ -42,4 +42,12 @@ foreach ($addresses as $address) {
 
 $cal = 10000000 - $sum;
 echo number_format($cal, 5, '.', ',');
+
+// Debugging code to examine the raw API response
+if ($response === false) {
+    echo "HTTP request failed: " . curl_error($ch); // Print the curl error
+} else {
+    echo "API Response: " . $response; // Print the raw API response
+}
+
 ?>
