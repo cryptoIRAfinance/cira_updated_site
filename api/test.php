@@ -24,7 +24,7 @@ $total = json_decode($totalur, true);
 
 $totalre = $total["result"];
 $totaldone = $rtotalre / 1e5;
-print number_format($s1, 5, '.', '');
+print number_format($totaldone, 5, '.', '');
 
 $re1 = $j1["result"];
 $re2 = $j2["result"];
