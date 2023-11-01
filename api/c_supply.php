@@ -15,7 +15,7 @@ function http_request($url){
 }
 
 // API Key should be defined as a constant or variable
-define('API_KEY', 'JAGR4Z37B7PRU9GBQTHR5G6E2QRXG8BA4D');
+$API_KEY - "JAGR4Z37B7PRU9GBQTHR5G6E2QRXG8BA4D";
 $contract_address = "0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE";
 $addresses = [
     "0xaa24b8bfab73f1b96deda252a58bf809676a97e6",
