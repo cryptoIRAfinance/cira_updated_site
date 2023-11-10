@@ -7,11 +7,10 @@ import Web3 from "web3";
 import Modal from "../Modal/Modal";
 import "./Audits.css";
 
-
   
 const Audits = () => {
-    const firebaseConfig = {
-        apiKey: "AIzaSyBAaNNidJEgW-hv4g1TzIeXU25gzH4BqVw",    
+      const firebaseConfig = {
+        apiKey: process.env.VITE_FIREBASE_API_KEY,    
         authDomain: "cira-audit.firebaseapp.com",    
         projectId: "cira-audit",    
         storageBucket: "cira-audit.appspot.com",    
