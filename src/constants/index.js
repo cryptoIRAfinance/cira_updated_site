@@ -1,4 +1,4 @@
-import { instagram, reddit, twitter, pancake, binance, paprika, send, shield, star, telegram  } from "../assets";
+import { instagram, reddit, twitter, pancake, binance, paprika, send, shield, star, telegram, livecoinwatch  } from "../assets";
 
 export const navLinks = [
   {
@@ -171,7 +171,13 @@ export const clients = [
   },
   {
     id: "client-3",
+    logo: livecoinwatch,
+    link: "https://www.livecoinwatch.com/price/CryptoIRAv2-CIRA",
+  },
+  {
+    id: "client-4",
     logo: paprika,
     link: "https://coinpaprika.com/coin/cira-crypto-ira/",
   },
+  
 ];

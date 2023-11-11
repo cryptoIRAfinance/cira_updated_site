@@ -40,7 +40,7 @@ const Footer = () => (
     </div>
 
     <div className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t-[3px]">
-      <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-dimWhite">
+      <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-dimBlue">
         Copyright Ⓒ 2023 CIRA. All Rights Reserved.
       </p>
 

@@ -24,6 +24,7 @@ import telegram from "./telegram.svg";
 import reddit from "./reddit.svg";
 import pancake from "./pancake.png";
 import paprika from "./paprika.png";
+import livecoinwatch from "./livecoinwatch.png";
 export {
   paprika,
   pancake,
@@ -51,4 +52,5 @@ export {
   telegram,
   reddit,
   logo2,
+  livecoinwatch,
 };
