@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+  <url>
+    <loc>https://cira.app/</loc>
+    <lastmod>2023-11-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Add more <url> elements here for each page you want to include in the sitemap -->
+</urlset>
