@@ -1,4 +1,4 @@
-import { instagram, reddit, twitter, pancake, binance, paprika, send, shield, star, telegram, livecoinwatch  } from "../assets";
+import { instagram, reddit, twitter, pancake, binance, paprika, send, shield, star, telegram, livecoinwatch, coingecko  } from "../assets";
 
 export const navLinks = [
   {
@@ -90,15 +90,15 @@ export const footerLinks = [
       },
       {
         name: "Rewards Tracker",
-        link: "https://test.cryptoira.finance/dashboard",
+        link: "https://app.cira.app/dashboard",
       },
       {
         name: "Test App",
-        link: "https://test.cryptoira.finance",
+        link: "https://app.cira.app",
       },
       {
         name: "Staking",
-        link: "https://test.cryptoira.finance/staking",
+        link: "https://app.cira.app/staking",
       },
     ],
   },
@@ -125,11 +125,11 @@ export const footerLinks = [
     links: [
       {
         name: "CIRALock",
-        link: "https://test.cryptoira.finance/locker",
+        link: "https://app.cira.app/locker",
       },
       {
         name: "Honey Pot Scanner",
-        link: "https://test.cryptoira.finance/honeypot",
+        link: "https://app.cira.app/honeypot",
       },
     ],
   },
@@ -166,18 +166,22 @@ export const clients = [
   },
   {
     id: "client-2",
-    logo: binance,
-    link: "https://bscscan.com/token/0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE",
-  },
-  {
-    id: "client-3",
     logo: livecoinwatch,
     link: "https://www.livecoinwatch.com/price/CryptoIRAv2-CIRA",
   },
   {
+    id: "client-3",
+    logo: binance,
+    link: "https://bscscan.com/token/0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE",
+  },
+  {
     id: "client-4",
+    logo: coingecko,
+    link: "https://www.geckoterminal.com/bsc/pools/0xc3f69312e6ec1bdd77077ad993ed2e2753a5c224",
+  },
+  {
+    id: "client-5",
     logo: paprika,
     link: "https://coinpaprika.com/coin/cira-crypto-ira/",
   },
-  
 ];

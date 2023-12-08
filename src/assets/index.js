@@ -25,6 +25,7 @@ import reddit from "./reddit.svg";
 import pancake from "./pancake.png";
 import paprika from "./paprika.png";
 import livecoinwatch from "./livecoinwatch.png";
+import coingecko from "./geckoterminal.png";
 export {
   paprika,
   pancake,
@@ -53,4 +54,5 @@ export {
   reddit,
   logo2,
   livecoinwatch,
+  coingecko,
 };
