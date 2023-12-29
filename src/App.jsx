@@ -1,5 +1,6 @@
 import styles from "./style";
 import { Services, Audits, Features, Applications, Clients, CTA, Footer, Navbar, Stats, Hero } from "./components";
+import { Analytics } from '@vercel/analytics/react';
 
 const App = () => (
   <div className="bg-secondary w-full overflow-hidden">
@@ -46,6 +47,7 @@ const App = () => (
         </div>
         <div className={`bg-secondary ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
+      <Analytics />
         <Footer />
       </div>
     </div>

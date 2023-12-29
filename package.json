@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.1.1",
     "ethereum-address": "^0.0.4",
     "firebase": "^9.15.0",
     "react": "^18.2.0",
