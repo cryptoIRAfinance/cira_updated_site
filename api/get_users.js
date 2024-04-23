@@ -1,11 +1,11 @@
+// api/py_bot_users.js
 
+import fs from 'fs/promises';
 
-const fs = require('fs');
-
-module.exports = (req, res) => {
+export default async function handler(req, res) {
     try {
         // Read the JSON file
-        const jsonData = fs.readFileSync('./py_bot_users.json', 'utf8');
+        const jsonData = await fs.readFile('./py_bot_users.json', 'utf8');
         const data = JSON.parse(jsonData);
 
         // Return the JSON data
@@ -14,5 +14,4 @@ module.exports = (req, res) => {
         console.error('Error reading JSON file:', error);
         res.status(500).end('Internal Server Error');
     }
-};
-
+}
