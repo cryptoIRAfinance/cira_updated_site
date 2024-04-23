@@ -1,11 +1,9 @@
-// api/py_bot_users.js
-
 import fs from 'fs/promises';
 
 export default async function handler(req, res) {
     try {
         // Read the JSON file
-        const jsonData = await fs.readFile('./py_bot_users.json', 'utf8');
+        const jsonData = await fs.readFile('./api/py_bot_users.json', 'utf8');
         const data = JSON.parse(jsonData);
 
         // Return the JSON data
