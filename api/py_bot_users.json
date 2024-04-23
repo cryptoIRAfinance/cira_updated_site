@@ -4,19 +4,18 @@
     },
     "registeredUsers": {
       "EUx36W2qa7eyy76xTWzuiGiSwgTfz2s3WUNpu6MbBRCH": {
-        "registrationTime": 1713886671,  // Unix timestamp representing the registration time (e.g., 2022-03-16T00:00:00Z)
-        "expirationTime": null  // Unix timestamp representing the expiration time (null for registered users without expiration)
+        "registrationTime": 1713886671,  
+        "expirationTime": null 
       }
+    },
+    "expiredUsers": {
+      "EUx36W2qa7eyy76xTWzuiGiSwgTfz2s3WUNpu6MbBRCH": [
+        {
+          "registrationTime": 1713886671,  
+          "expirationTime": 1716496671,    
+          "activeDays": 28                 
+        }
+      ]
     }
-
-    // "expiredUsers": {
-    //   "EUx36W2qa7eyy76xTWzuiGiSwgTfz2s3WUNpu6MbBRCH": [
-    //     {
-    //       "registrationTime": 1713886671,  // Unix timestamp representing the registration time (e.g., 2022-03-16T00:00:00Z)
-    //       "expirationTime": 1716496671,    // Unix timestamp representing the expiration time (e.g., 2022-04-13T00:00:00Z)
-    //       "activeDays": 28                 // Number of days the user was active
-    //     }
-    //   ]
-    // }
   }
   

@@ -131,6 +131,10 @@ export const footerLinks = [
         name: "Honey Pot Scanner",
         link: "https://app.cira.app/honeypot",
       },
+      {
+        name: "Supply API",
+        link: "https://cira.app/api/supply",
+      },
     ],
   },
 ];
