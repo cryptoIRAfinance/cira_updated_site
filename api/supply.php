@@ -12,7 +12,7 @@ function http_request($url){
 }
 
 // URLs for the API requests
-$url_total_supply = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&apikey=YourApiKeyToken";
+$url_total_supply = "https://api.bscscan.com/api?module=stats&action=tokensupply&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&apikey=5FYCSW5QEIH6J8ATQUE6FS12N52G2AAJYH";
 $url_balances = [
     "Developer" => "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&address=0xAe50A9404e79160c51e7266021B644B906972B3F&tag=latest&apikey=JAGR4Z37B7PRU9GBQTHR5G6E2QRXG8BA4D",
     "Marketing" => "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&address=0xaa24b8bfab73f1b96deda252a58bf809676a97e6&tag=latest&apikey=JAGR4Z37B7PRU9GBQTHR5G6E2QRXG8BA4D",
