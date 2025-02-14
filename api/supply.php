@@ -24,7 +24,13 @@ $url_balances = [
 // Fetch total supply
 $total_supply_json = http_request($url_total_supply);
 $total_supply_arr = json_decode($total_supply_json, true);
-$total_supply = $total_supply_arr["result"] / 1e5;
+
+if (!isset($total_supply_arr["result"]) || !is_numeric($total_supply_arr["result"])) {
+    // Handle the error gracefully (e.g. default to 0, or return error msg)
+    $total_supply = 0;
+} else {
+    $total_supply = floatval($total_supply_arr["result"]) / 1e5;
+}
 
 // Initialize an array to hold balances
 $balances = [];
@@ -33,7 +39,12 @@ $balances = [];
 foreach ($url_balances as $label => $url) {
     $json = http_request($url);
     $arr = json_decode($json, true);
-    $balances[$label] = $arr["result"] / 1e5;
+    
+    if (!isset($arr["result"]) || !is_numeric($arr["result"])) {
+        $balances[$label] = 0;
+    } else {
+        $balances[$label] = floatval($arr["result"]) / 1e5;
+    }
 }
 
 // Calculate the remaining balance
@@ -49,5 +60,3 @@ $output = [
 ];
 
 echo json_encode($output);
-
-?>
