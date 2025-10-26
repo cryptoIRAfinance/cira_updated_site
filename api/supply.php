@@ -16,7 +16,6 @@ $url_total_supply = "https://api.etherscan.io/v2/api?chainid=56&module=stats&act
 $url_balances = [
     "Developer" => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokenbalance&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&address=0xAe50A9404e79160c51e7266021B644B906972B3F&tag=latest&apikey=RFF96R27NMKHINI94RSV44R247HQFN8TQK",
     "Marketing" => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokenbalance&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&address=0xaa24b8bfab73f1b96deda252a58bf809676a97e6&tag=latest&apikey=RFF96R27NMKHINI94RSV44R247HQFN8TQK",
-    "Staking"  => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokenbalance&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&address=0xfB5f80106F71E7f9850aF204da259a467A7Cc0DD&tag=latest&apikey=RFF96R27NMKHINI94RSV44R247HQFN8TQK",
     "Burn"     => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokenbalance&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&address=0x000000000000000000000000000000000000dead&tag=latest&apikey=RFF96R27NMKHINI94RSV44R247HQFN8TQK"
 ];
 
