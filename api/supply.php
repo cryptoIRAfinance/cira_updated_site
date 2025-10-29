@@ -71,7 +71,7 @@ $responses = http_request_parallel($all_urls, $errors);
 $total_supply_arr = json_decode($responses["Total_Supply"], true);
 if (!isset($total_supply_arr["result"]) || !is_numeric($total_supply_arr["result"])) {
     $total_supply = 0;
-    $errors[] = "Total Supply: Invalid or missing result";
+    $errors[] = "Total Supply: " . ($total_supply_arr["message"] ?? "Invalid or missing result") . " | Response: " . substr($responses["Total_Supply"], 0, 200);
 } else {
     $total_supply = floatval($total_supply_arr["result"]) / 1e5;
 }
@@ -85,7 +85,7 @@ foreach ($balance_keys as $label) {
 
     if (!isset($arr["result"]) || !is_numeric($arr["result"])) {
         $balances[$label] = 0;
-        $errors[] = "$label: Invalid or missing result";
+        $errors[] = "$label: " . ($arr["message"] ?? "Invalid or missing result") . " | Response: " . substr($responses[$label], 0, 200);
     } else {
         $balances[$label] = floatval($arr["result"]) / 1e5;
     }
