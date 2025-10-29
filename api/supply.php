@@ -56,9 +56,11 @@ function http_request_parallel($urls, &$errors = null) {
     return $results;
 }
 
-// URLs for the API requests - combine all into one array for parallel execution
+// Hardcode total supply to 10 million (no API call needed)
+$total_supply = 10000000;
+
+// URLs for the API requests - only balance checks now
 $all_urls = [
-    "Total_Supply" => "https://api.etherscan.io/v2/api?chainid=56&module=stats&action=tokensupply&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&apikey=RFF96R27NMKHINI94RSV44R247HQFN8TQK",
     "Developer" => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokenbalance&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&address=0xAe50A9404e79160c51e7266021B644B906972B3F&tag=latest&apikey=RFF96R27NMKHINI94RSV44R247HQFN8TQK",
     "Marketing" => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokenbalance&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&address=0xaa24b8bfab73f1b96deda252a58bf809676a97e6&tag=latest&apikey=RFF96R27NMKHINI94RSV44R247HQFN8TQK",
     "Burn" => "https://api.etherscan.io/v2/api?chainid=56&module=account&action=tokenbalance&contractaddress=0xDd25E1955FD9F7B3aBE83CC419070A7ace104DCE&address=0x000000000000000000000000000000000000dead&tag=latest&apikey=RFF96R27NMKHINI94RSV44R247HQFN8TQK"
@@ -66,15 +68,6 @@ $all_urls = [
 
 // Execute all requests in parallel (like Promise.all in JavaScript)
 $responses = http_request_parallel($all_urls, $errors);
-
-// Process total supply
-$total_supply_arr = json_decode($responses["Total_Supply"], true);
-if (!isset($total_supply_arr["result"]) || !is_numeric($total_supply_arr["result"])) {
-    $total_supply = 0;
-    $errors[] = "Total Supply: " . ($total_supply_arr["message"] ?? "Invalid or missing result") . " | Response: " . substr($responses["Total_Supply"], 0, 200);
-} else {
-    $total_supply = floatval($total_supply_arr["result"]) / 1e5;
-}
 
 // Process balances
 $balances = [];
